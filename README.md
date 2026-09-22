@@ -96,7 +96,7 @@ approved engineering changes.
   and evaluation output. It does not authorize or perform MCP writes.
 - **WebSearch** is scoped to the public Kore.ai ABL documentation at
   `https://docs.kore.ai/agent-platform/`.
-- **EmbeddedKnowledge** contains five curated ABL/debug/import references;
+- **EmbeddedKnowledge** contains ten curated ABL/debug/reference documents;
   follow
   [`docs/embedded-knowledge-guide.md`](docs/embedded-knowledge-guide.md).
 - The app requests `identity` only. `messageTeamMembers` is unnecessary for

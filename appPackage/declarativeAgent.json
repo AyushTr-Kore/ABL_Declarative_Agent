@@ -33,6 +33,21 @@
                 },
                 {
                     "file": "knowledge/abl-repair-loop.md"
+                },
+                {
+                    "file": "knowledge/abl-language-overview.md"
+                },
+                {
+                    "file": "knowledge/abl-agent-declaration.md"
+                },
+                {
+                    "file": "knowledge/abl-tools-reference.md"
+                },
+                {
+                    "file": "knowledge/abl-faq.md"
+                },
+                {
+                    "file": "knowledge/abl-examples-by-pattern.md"
                 }
             ]
         }
