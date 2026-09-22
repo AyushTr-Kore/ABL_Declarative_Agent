@@ -1,0 +1,41 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.30/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.30",
+    "version": "1.0.3",
+    "id": "${{TEAMS_APP_ID}}",
+    "developer": {
+        "name": "Kore.ai",
+        "websiteUrl": "https://kore.ai/",
+        "privacyUrl": "https://kore.ai/privacy-policy/",
+        "termsOfUseUrl": "https://kore.ai/terms-of-service/"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "ABL Engineering Assistant",
+        "full": "Kore.ai ABL Engineering Assistant"
+    },
+    "description": {
+        "short": "Inspect, validate, debug, evaluate, and safely improve Kore.ai ABL agents.",
+        "full": "ABL Engineering Assistant helps developers discover projects, validate ABL packages, diagnose runtime behavior, analyze evaluations, find official ABL guidance, and plan or apply safe repairs through the canonical Arch MCP registry."
+    },
+    "accentColor": "#FFFFFF",
+    "supportsChannelFeatures": "tier1",
+    "composeExtensions": [],
+    "copilotAgents": {
+        "declarativeAgents": [            
+            {
+                "id": "declarativeAgent",
+                "file": "declarativeAgent.json"
+            }
+        ]
+    },
+    "permissions": [
+        "identity"
+    ],
+    "validDomains": [
+        "ff27-115-114-88-222.ngrok-free.app"
+    ]
+}

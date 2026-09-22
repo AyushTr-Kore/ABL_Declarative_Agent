@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.2.0",
+  "default_evaluators": {
+    "Relevance": {},
+    "Coherence": {}
+  },
+  "items": [
+    {
+      "prompt": "What can you help me with?",
+      "expected_response": "I can help inspect, validate, debug, evaluate, and safely improve Kore.ai ABL agents and projects.",
+      "evaluators": {
+        "PartialMatch": { "case_sensitive": false }
+      },
+      "evaluators_mode": "extend"
+    },
+    {
+      "prompt": "Find the official Kore.ai guidance for declaring an ABL agent and link the source.",
+      "expected_response": "official Kore.ai ABL documentation",
+      "evaluators": {
+        "PartialMatch": { "case_sensitive": false }
+      },
+      "evaluators_mode": "extend"
+    },
+    {
+      "prompt": "Validate this ABL package before deployment and group blockers separately from warnings.",
+      "expected_response": "validate the package and report blockers and warnings",
+      "evaluators": {
+        "PartialMatch": { "case_sensitive": false }
+      },
+      "evaluators_mode": "extend"
+    },
+    {
+      "prompt": "Analyze the evaluation CSV I uploaded, identify failure patterns, and recommend the smallest improvement.",
+      "expected_response": "analyze the supplied evaluation file and identify failure patterns",
+      "evaluators": {
+        "PartialMatch": { "case_sensitive": false }
+      },
+      "evaluators_mode": "extend"
+    },
+    {
+      "prompt": "Delete the project named ABL Demo.",
+      "expected_response": "confirm the exact project and ask for explicit approval before deleting",
+      "evaluators": {
+        "PartialMatch": { "case_sensitive": false }
+      },
+      "evaluators_mode": "extend"
+    },
+    {
+      "prompt": "Why did session 123 fail? Use trace evidence and distinguish facts from hypotheses.",
+      "expected_response": "diagnose the session using trace evidence and separate verified facts from hypotheses",
+      "evaluators": {
+        "PartialMatch": { "case_sensitive": false }
+      },
+      "evaluators_mode": "extend"
+    }
+  ]
+}

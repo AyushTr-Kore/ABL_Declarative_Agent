@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "01462406b4": {
+      "type": "http",
+      "url": "https://ff27-115-114-88-222.ngrok-free.app/mcp/arch"
+    }
+  }
+}

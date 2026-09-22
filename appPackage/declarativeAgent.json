@@ -1,0 +1,84 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
+    "version": "v1.8",
+    "name": "ABL Engineering Assistant",
+    "description": "Engineering assistant for inspecting, validating, debugging, evaluating, and safely improving Kore.ai ABL agents through the canonical Arch MCP registry.",
+    "instructions": "$[file('instruction.txt')]",
+    "capabilities": [
+        {
+            "name": "CodeInterpreter"
+        },
+        {
+            "name": "WebSearch",
+            "sites": [
+                {
+                    "url": "https://docs.kore.ai/agent-platform/"
+                }
+            ]
+        },
+        {
+            "name": "EmbeddedKnowledge",
+            "files": [
+                {
+                    "file": "knowledge/abl-flow-lifecycle.md"
+                },
+                {
+                    "file": "knowledge/abl-platform-contract.md"
+                },
+                {
+                    "file": "knowledge/abl-import-contract.md"
+                },
+                {
+                    "file": "knowledge/abl-behavior-profiles.md"
+                },
+                {
+                    "file": "knowledge/abl-repair-loop.md"
+                }
+            ]
+        }
+    ],
+    "conversation_starters": [
+        {
+            "title": "Explore my ABL projects",
+            "text": "List the projects in my authenticated workspace and explain what I can inspect in each one."
+        },
+        {
+            "title": "Inspect a project",
+            "text": "Inspect a project and summarize its agents, workflows, tools, versions, and deployment state."
+        },
+        {
+            "title": "Validate an ABL package",
+            "text": "Validate this ABL package, group blockers and warnings by file or line, and tell me what to fix first."
+        },
+        {
+            "title": "Diagnose a failed run",
+            "text": "Diagnose this failed ABL run using session history, traces, errors, and decision evidence; separate facts from hypotheses."
+        },
+        {
+            "title": "Find ABL guidance",
+            "text": "Find the relevant official Kore.ai ABL documentation for this question and summarize the guidance with links."
+        },
+        {
+            "title": "Analyze evaluation results",
+            "text": "Analyze the evaluation file I provide, identify failure patterns, and recommend the smallest high-impact improvement."
+        },
+        {
+            "title": "Review agent design",
+            "text": "Review this ABL agent's structure, instructions, tools, memory, and handoffs for correctness and maintainability."
+        },
+        {
+            "title": "Compare environments",
+            "text": "Compare the selected project's versions and deployment status across environments using only verified platform data."
+        },
+        {
+            "title": "Plan a safe repair",
+            "text": "Review this ABL package, identify the smallest safe fix, explain its impact, and list the validation required before publishing."
+        }
+    ],
+    "actions": [
+        {
+            "id": "ablEngineeringMcp",
+            "file": "ai-plugin.json"
+        }
+    ]
+}
