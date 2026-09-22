@@ -58,6 +58,7 @@ approved engineering changes.
     - `appPackage/instruction.txt` (operating rules and safety policy)
     - `appPackage/manifest.json` (Teams and Copilot app metadata)
     - `docs/embedded-knowledge-guide.md` (knowledge-source design and setup)
+    - `docs/tool-schema-and-discoverability-strategies.md` (tool catalog and discovery strategies)
 
 9. Provision & debug
 
