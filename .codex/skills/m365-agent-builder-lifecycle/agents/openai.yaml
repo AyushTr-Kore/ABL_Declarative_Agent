@@ -1,0 +1,3 @@
+interface:
+  display_name: "M365 Agent Builder Lifecycle"
+  short_description: "Validate and ship this M365 agent package safely"
