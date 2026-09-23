@@ -20,34 +20,34 @@
             "name": "EmbeddedKnowledge",
             "files": [
                 {
-                    "file": "knowledge/abl-flow-lifecycle.md"
+                    "file": "knowledge/abl-flow-lifecycle.txt"
                 },
                 {
-                    "file": "knowledge/abl-platform-contract.md"
+                    "file": "knowledge/abl-platform-contract.txt"
                 },
                 {
-                    "file": "knowledge/abl-import-contract.md"
+                    "file": "knowledge/abl-import-contract.txt"
                 },
                 {
-                    "file": "knowledge/abl-behavior-profiles.md"
+                    "file": "knowledge/abl-behavior-profiles.txt"
                 },
                 {
-                    "file": "knowledge/abl-repair-loop.md"
+                    "file": "knowledge/abl-repair-loop.txt"
                 },
                 {
-                    "file": "knowledge/abl-language-overview.md"
+                    "file": "knowledge/abl-language-overview.txt"
                 },
                 {
-                    "file": "knowledge/abl-agent-declaration.md"
+                    "file": "knowledge/abl-agent-declaration.txt"
                 },
                 {
-                    "file": "knowledge/abl-tools-reference.md"
+                    "file": "knowledge/abl-tools-reference.txt"
                 },
                 {
-                    "file": "knowledge/abl-faq.md"
+                    "file": "knowledge/abl-faq.txt"
                 },
                 {
-                    "file": "knowledge/abl-examples-by-pattern.md"
+                    "file": "knowledge/abl-examples-by-pattern.txt"
                 }
             ]
         }

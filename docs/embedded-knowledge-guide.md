@@ -37,20 +37,20 @@ those claims through MCP.
 The package currently embeds ten focused references. The first five are copied
 from the Arch MCP debug fallback documentation:
 
-- `appPackage/knowledge/abl-flow-lifecycle.md`
-- `appPackage/knowledge/abl-platform-contract.md`
-- `appPackage/knowledge/abl-import-contract.md`
-- `appPackage/knowledge/abl-behavior-profiles.md`
-- `appPackage/knowledge/abl-repair-loop.md`
+- `appPackage/knowledge/abl-flow-lifecycle.txt`
+- `appPackage/knowledge/abl-platform-contract.txt`
+- `appPackage/knowledge/abl-import-contract.txt`
+- `appPackage/knowledge/abl-behavior-profiles.txt`
+- `appPackage/knowledge/abl-repair-loop.txt`
 
 The next five are curated from the local ABL authoring, FAQ, and examples
 documentation:
 
-- `appPackage/knowledge/abl-language-overview.md`
-- `appPackage/knowledge/abl-agent-declaration.md`
-- `appPackage/knowledge/abl-tools-reference.md`
-- `appPackage/knowledge/abl-faq.md`
-- `appPackage/knowledge/abl-examples-by-pattern.md`
+- `appPackage/knowledge/abl-language-overview.txt`
+- `appPackage/knowledge/abl-agent-declaration.txt`
+- `appPackage/knowledge/abl-tools-reference.txt`
+- `appPackage/knowledge/abl-faq.txt`
+- `appPackage/knowledge/abl-examples-by-pattern.txt`
 
 Because v1.8 supports at most 10 embedded files, replace or consolidate a file
 before adding another one. Keep organization-specific SOPs separate from
@@ -62,7 +62,7 @@ tenant data. Update the files and the package version when the guidance changes.
 
 ## How to add it
 
-1. Add the reviewed Markdown, text, or supported document file under
+1. Add the reviewed plain-text (`.txt`) or supported document file under
    `appPackage/knowledge/`.
 2. Add its relative path to the existing capability in
    `appPackage/declarativeAgent.json`, for example:
@@ -71,8 +71,8 @@ tenant data. Update the files and the package version when the guidance changes.
 {
   "name": "EmbeddedKnowledge",
   "files": [
-    { "file": "knowledge/abl-authoring-basics.md" },
-    { "file": "knowledge/abl-engineering-sop.md" }
+    { "file": "knowledge/abl-authoring-basics.txt" },
+    { "file": "knowledge/abl-engineering-sop.txt" }
   ]
 }
 ```
