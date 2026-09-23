@@ -1,8 +1,8 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.8/schema.json",
     "version": "v1.8",
-    "name": "ABL Engineering Assistant",
-    "description": "Engineering assistant for inspecting, validating, debugging, evaluating, and safely improving Kore.ai ABL agents through the canonical Arch MCP registry.",
+    "name": "ABL Engineering Assistant - Read Only",
+    "description": "Read-only engineering assistant for inspecting, validating, documenting, and diagnosing Kore.ai ABL agents through the canonical Arch MCP registry.",
     "instructions": "$[file('instruction.txt')]",
     "capabilities": [
         {
@@ -54,12 +54,12 @@
     ],
     "conversation_starters": [
         {
-            "title": "Explore my ABL projects",
-            "text": "List the projects in my authenticated workspace and explain what I can inspect in each one."
+            "title": "Inspect available ABL agents",
+            "text": "List the available ABL agents in my authenticated workspace and summarize the verified results."
         },
         {
-            "title": "Inspect a project",
-            "text": "Inspect a project and summarize its agents, workflows, tools, versions, and deployment state."
+            "title": "Review an ABL package",
+            "text": "Show the compiler-visible model of this ABL package and identify unresolved references or design risks."
         },
         {
             "title": "Validate an ABL package",
@@ -74,20 +74,16 @@
             "text": "Find the relevant official Kore.ai ABL documentation for this question and summarize the guidance with links."
         },
         {
-            "title": "Analyze evaluation results",
-            "text": "Analyze the evaluation file I provide, identify failure patterns, and recommend the smallest high-impact improvement."
+            "title": "Analyze an agent session",
+            "text": "Analyze this ABL agent session using traces, state, errors, decisions, and timing evidence."
         },
         {
-            "title": "Review agent design",
-            "text": "Review this ABL agent's structure, instructions, tools, memory, and handoffs for correctness and maintainability."
+            "title": "Review execution traces",
+            "text": "Search the relevant ABL runtime traces and separate verified evidence from hypotheses."
         },
         {
-            "title": "Compare environments",
-            "text": "Compare the selected project's versions and deployment status across environments using only verified platform data."
-        },
-        {
-            "title": "Plan a safe repair",
-            "text": "Review this ABL package, identify the smallest safe fix, explain its impact, and list the validation required before publishing."
+            "title": "Run ABL lint",
+            "text": "Run read-only ABL lint checks and group the findings by severity, file, and line."
         }
     ],
     "actions": [

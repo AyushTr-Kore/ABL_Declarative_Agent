@@ -1,9 +1,9 @@
 {
     "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
     "schema_version": "v2.4",
-    "name_for_human": "ABL Engineering Assistant",
-    "description_for_human": "Inspect, validate, debug, evaluate, and safely improve Kore.ai ABL agents.",
-    "description_for_model": "Use this plugin for Kore.ai ABL engineering tasks in the authenticated workspace. Use read-only functions to discover projects, inspect packages and runtime evidence, validate definitions, diagnose sessions, and analyze evaluations. Use mutating functions only after the user explicitly approves the exact target and impact; then validate and report the resulting status. Prefer official Kore.ai ABL documentation for general guidance, CodeInterpreter for user-provided files and calculations, and MCP results for live platform state. Never request or expose credentials, invent IDs or tool results, or claim a write, deployment, or evaluation completed without evidence.",
+    "name_for_human": "ABL Engineering Assistant - Read Only",
+    "description_for_human": "Inspect, validate, document, and diagnose Kore.ai ABL agents without changing platform state.",
+    "description_for_model": "Use this plugin as the arch-copilot-readonly capability profile for Kore.ai ABL engineering. Use only the listed functions for verified inspection, package validation, documentation, and runtime diagnosis. This profile cannot create, update, delete, publish, deploy, approve, cancel, or otherwise mutate platform state or execute agent workflows. Use MCP results for live platform evidence, WebSearch for public documentation, CodeInterpreter for user-provided files, and EmbeddedKnowledge for bundled guidance. Never request or expose credentials, invent IDs or results, or claim completion without evidence.",
     "contact_email": "eva.info@kore.com",
     "namespace": "01462406b4",
     "functions": [
@@ -12,16 +12,8 @@
             "description": "List available ABL agents in the authenticated workspace. Read-only; use when agent scope is unknown. Results are paginated."
         },
         {
-            "name": "debug_load_agent",
-            "description": "Load one ABL agent and create a debug session. This does not change the agent definition; require an exact agentPath and project scope."
-        },
-        {
-            "name": "debug_send_message",
-            "description": "Send a test message to a loaded ABL agent and optionally wait for its response. Use only when reproduction is requested and return response status."
-        },
-        {
             "name": "debug_traces",
-            "description": "Search bounded live or historical Runtime traces. Use live evidence for active sessions and historical evidence with projectId and sessionId after a session ends."
+            "description": "Search bounded live or historical Runtime traces. Use live evidence for active sessions and historical evidence with projectId and sessionId after a session ends. Read-only."
         },
         {
             "name": "debug_session_history",
@@ -29,103 +21,35 @@
         },
         {
             "name": "debug_get_current_state",
-            "description": "Read current or historical agent state, including flow state, gathered fields, and context. Require session scope for historical reads."
+            "description": "Read current or historical agent state, including flow state, gathered fields, and context. Require session scope for historical reads. Read-only."
         },
         {
             "name": "debug_get_span_tree",
-            "description": "Read the execution span tree for an agent session. Use it to understand step and tool timing; choose historical source for ended sessions."
+            "description": "Read the execution span tree for an agent session. Use it to understand step and tool timing; choose historical source for ended sessions. Read-only."
         },
         {
             "name": "debug_get_errors",
-            "description": "Find errors, warnings, escalations, constraint failures, and tool failures for an agent session. Return bounded Runtime evidence."
+            "description": "Find errors, warnings, escalations, constraint failures, and tool failures for an agent session. Return bounded Runtime evidence. Read-only."
         },
         {
             "name": "debug_explain_decision",
-            "description": "Explain one Runtime decision with surrounding evidence. Use after identifying a decision event; do not infer a cause without supporting traces."
+            "description": "Explain one Runtime decision with surrounding evidence. Use after identifying a decision event; do not infer a cause without supporting traces. Read-only."
         },
         {
             "name": "debug_get_flow_graph",
-            "description": "Show the execution graph for a scripted, reasoning, or supervisor agent. Choose JSON for analysis or Mermaid for documentation."
+            "description": "Show the execution graph for a scripted, reasoning, or supervisor agent. Choose JSON for analysis or Mermaid for documentation. Read-only."
         },
         {
             "name": "debug_list_active_sessions",
             "description": "List active agent sessions available for live diagnosis. Use historical session history for ended sessions. Read-only."
         },
         {
-            "name": "debug_session",
-            "description": "Subscribe or unsubscribe from an existing debug session. This changes debug subscription state, not the agent definition; use the exact session ID."
-        },
-        {
             "name": "debug_docs",
-            "description": "Search or read authoritative ABL documentation. Provide a topic for a page, a query for search, or neither to list available topics."
+            "description": "Search or read authoritative ABL documentation. Provide a topic for a page, a query for search, or neither to list available topics. Read-only."
         },
         {
             "name": "debug_analyze_session",
-            "description": "Analyze one agent session for duration, LLM calls, state, loops, errors, constraints, and tool failures. Use historical source with projectId and sessionId after the session ends."
-        },
-        {
-            "name": "platform_project_builder",
-            "description": "Describe, inspect, or plan a governed workflow project-building operation. Use the published workflow domain and do not substitute it for dedicated project, agent, or tool operations."
-        },
-        {
-            "name": "platform_project_builder_operations",
-            "description": "List, inspect, resume, cancel, grant, or execute governed workflow-building operations. Use only with the workflow domain; execution or cancellation may change state and requires approval."
-        },
-        {
-            "name": "platform_projects",
-            "description": "List or inspect projects in the authenticated workspace. Create, update, and delete actions change project state and require approval."
-        },
-        {
-            "name": "platform_workflows",
-            "description": "Inspect or operate project workflows. Reads cover workflows, versions, executions, triggers, and status; create, update, publish, activate, execute, approve, trigger, and delete actions require approval."
-        },
-        {
-            "name": "platform_arch_sop",
-            "description": "Create or continue a guided Arch SOP project-building session and inspect its durable evidence. Session creation, continuation, recovery, and cancellation can change state and require approval."
-        },
-        {
-            "name": "platform_arch_auto_loop",
-            "description": "List or manage project repair-loop runs. Use to inspect or continue governed validation and repair workflows; mutations require approval and execution status must be verified."
-        },
-        {
-            "name": "platform_auth_profiles",
-            "description": "Manage project authentication-profile metadata and validation without accepting raw secrets. Use secure OAuth or secret flows; create, update, revoke, and delete actions require approval."
-        },
-        {
-            "name": "platform_integrations",
-            "description": "List, inspect, test, or manage project connector integrations. Use an existing auth profile when required; create, update, and delete actions require approval."
-        },
-        {
-            "name": "platform_mcp_servers",
-            "description": "Discover, test, authorize, or manage project MCP server connections and imported tools. Never request raw credentials; connection changes require approval."
-        },
-        {
-            "name": "platform_agents",
-            "description": "List or inspect project agents and their DSL, or save an agent DSL revision. Saving DSL changes project behavior and requires approval plus validation."
-        },
-        {
-            "name": "platform_versions",
-            "description": "Inspect immutable agent versions, qualification, audit, and diffs, or publish the current draft. Publishing changes release state and requires approval."
-        },
-        {
-            "name": "platform_deployments",
-            "description": "Inspect or manage typed agent deployments. Create, promote, rollback, restore, or retire actions change production-facing state and require explicit approval."
-        },
-        {
-            "name": "platform_sdk_channels",
-            "description": "Inspect or manage public SDK keys and channel bindings. Creating keys or channels exposes a runtime entry point and requires approval."
-        },
-        {
-            "name": "platform_tools",
-            "description": "List, inspect, test, or manage project tools. Tool tests execute the selected tool; create, update, and delete actions require approval."
-        },
-        {
-            "name": "agent_tables",
-            "description": "Inspect or manage Agent Tables. Use availability first when diagnosing TABLE_UNAVAILABLE; row writes, migrations, reveal, and deletes require approval."
-        },
-        {
-            "name": "platform_import_export",
-            "description": "Preview or perform project import/export. Use preview before import; import changes project state and requires approval. Never expose secrets from exported files."
+            "description": "Analyze one agent session for duration, LLM calls, state, loops, errors, constraints, and tool failures. Use historical source with projectId and sessionId after the session ends. Read-only."
         },
         {
             "name": "platform_validate_package",
@@ -141,39 +65,15 @@
         },
         {
             "name": "debug_why_transcript_failed",
-            "description": "Correlate a failed transcript with ABL package and file or line evidence. Use this as the canonical transcript-diagnosis function when available."
+            "description": "Correlate a failed transcript with ABL package and file or line evidence. Use this as the canonical transcript-diagnosis function when available. Read-only."
         },
         {
             "name": "debug_diagnose_transcript",
-            "description": "Compatibility alias for transcript diagnosis. Prefer debug_why_transcript_failed when both functions are available."
-        },
-        {
-            "name": "platform_eval_personas",
-            "description": "List, inspect, generate, or manage evaluation personas for a project. Creation and updates change evaluation assets and require approval."
-        },
-        {
-            "name": "platform_eval_scenarios",
-            "description": "List, inspect, generate, or manage evaluation scenarios for a project. Creation and updates change evaluation assets and require approval."
-        },
-        {
-            "name": "platform_eval_evaluators",
-            "description": "List, inspect, template, or manage evaluation evaluators. Creation and updates change scoring configuration and require approval."
-        },
-        {
-            "name": "platform_eval_sets",
-            "description": "List, inspect, manage, or discover targets for evaluation sets. Use exact working-copy, environment, deployment, or version targets; changes require approval."
-        },
-        {
-            "name": "platform_eval_runs",
-            "description": "Inspect, start, compare, or manage evaluation runs. Preflight and analysis reads are safe; create, start, cancel, and update actions require approval. Never report completion until status confirms it."
-        },
-        {
-            "name": "platform_config",
-            "description": "Read or update project and LLM configuration. Reads are safe; updates change project behavior and require approval."
+            "description": "Compatibility alias for transcript diagnosis. Prefer debug_why_transcript_failed when both functions are available. Read-only."
         },
         {
             "name": "debug_diagnose",
-            "description": "Run diagnostic analysis for an agent or session. Provide an exact agentName or sessionId; configOnly is useful for configuration-only inspection."
+            "description": "Run read-only diagnostic analysis for an agent or session. Provide an exact agentName or sessionId; configOnly is useful for configuration-only inspection."
         }
     ],
     "runtimes": [
@@ -184,8 +84,6 @@
             },
             "run_for_functions": [
                 "debug_list_agents",
-                "debug_load_agent",
-                "debug_send_message",
                 "debug_traces",
                 "debug_session_history",
                 "debug_get_current_state",
@@ -194,36 +92,13 @@
                 "debug_explain_decision",
                 "debug_get_flow_graph",
                 "debug_list_active_sessions",
-                "debug_session",
                 "debug_docs",
                 "debug_analyze_session",
-                "platform_project_builder",
-                "platform_project_builder_operations",
-                "platform_projects",
-                "platform_workflows",
-                "platform_arch_sop",
-                "platform_arch_auto_loop",
-                "platform_auth_profiles",
-                "platform_integrations",
-                "platform_mcp_servers",
-                "platform_agents",
-                "platform_versions",
-                "platform_deployments",
-                "platform_sdk_channels",
-                "platform_tools",
-                "agent_tables",
-                "platform_import_export",
                 "platform_validate_package",
                 "platform_package_model",
                 "debug_lint_abl",
                 "debug_why_transcript_failed",
                 "debug_diagnose_transcript",
-                "platform_eval_personas",
-                "platform_eval_scenarios",
-                "platform_eval_evaluators",
-                "platform_eval_sets",
-                "platform_eval_runs",
-                "platform_config",
                 "debug_diagnose"
             ],
             "auth": {

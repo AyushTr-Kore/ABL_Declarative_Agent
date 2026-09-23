@@ -46,6 +46,27 @@ schemas:
 The current state is useful for compatibility and development, but it keeps
 the model-facing catalog broad.
 
+## Capability-profile branch implementation
+
+This branch applies the first production profile, `arch-copilot-readonly`, at
+the Declarative Agent package boundary:
+
+- `ai-plugin.json` exposes 17 dedicated inspection, validation, documentation,
+  and diagnostic functions.
+- `run_for_functions` contains exactly the same 17 names.
+- Mixed-action project, workflow, evaluation, deployment, configuration,
+  integration, administration, and repair functions are not model-visible.
+- `declarativeAgent.json` starters and `instruction.txt` describe the
+  read-only boundary and do not promise unavailable mutations.
+- The Remote MCP URL remains `/mcp/arch` because this checkout does not contain
+  a profile-specific resource route or a generated static MCP catalog.
+
+This is a package-side capability projection, not a replacement for
+server-side profile enforcement. Before production, Remote MCP must expose the
+same profile through `tools/list` and reauthorize every `tools/call`. Once that
+contract exists, the package URL or profile selector and a generated static
+catalog can be added without changing the agent's read-only function set.
+
 ## Shared architecture and ownership
 
 All three strategies should use the same canonical tool definitions and

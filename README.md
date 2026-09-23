@@ -39,10 +39,11 @@ approved engineering changes.
 6. Fetch and select tools 
 
     When prompted, click `ATK: Fetch Action from MCP` in `mcp.json`. This
-    project uses dynamic MCP discovery, so the remote registry remains the
-    source of tool schemas and `run_for_functions` binds the declared catalog.
-    Keep the complete catalog available; the agent instructions and concise
-    function descriptions guide tool selection without removing capability.
+    branch uses the `arch-copilot-readonly` capability profile. The remote
+    registry remains the source of tool schemas and `run_for_functions` binds
+    the selected read-only catalog. Mixed-action project, deployment,
+    evaluation, administration, and repair functions are intentionally not
+    exposed by this package.
 
     The project does not currently maintain a checked-in static
     `mcp-tools.json` catalog.
@@ -81,9 +82,9 @@ approved engineering changes.
 
 - **Discovery URL**: your MCP server’s /discover endpoint must expose JSON‑Schema for every action.
 - **Tool selection**: `run_for_functions` in `ai-plugin.json` binds the
-  declared functions to the remote MCP runtime. This package keeps all
-  declared functions available; descriptions and instructions provide the UX
-  routing layer.
+  selected read-only functions to the remote MCP runtime. The package and
+  server must remain aligned; package filtering is not a replacement for
+  server-side authorization.
 
 - **Auth flows**: ATK supports both OAuth2.1 and API‑Key; you don’t need to hand‑edit auth blocks.  
 
