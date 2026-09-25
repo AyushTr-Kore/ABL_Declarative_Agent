@@ -24,6 +24,7 @@ provision:
       isPKCEEnabled: true
       authorizationUrl: https://ff27-115-114-88-222.ngrok-free.app/oauth/auth
       tokenUrl: https://ff27-115-114-88-222.ngrok-free.app/oauth/token
+      refreshUrl: https://ff27-115-114-88-222.ngrok-free.app/oauth/token
       identityProvider: Custom
       baseUrl: https://ff27-115-114-88-222.ngrok-free.app/mcp/arch
       clientId: ${{MCP_DA_OAUTH_CLIENT_ID_01462406B4}}

@@ -172,6 +172,10 @@
             "description": "Read or update project and LLM configuration. Reads are safe; updates change project behavior and require approval."
         },
         {
+            "name": "platform_workspaces",
+            "description": "List available workspaces, inspect the current workspace, or explicitly switch workspaces. list and current are read-only; switch changes the authenticated MCP workspace context and may require OAuth reauthorization. If the server returns MCP_WORKSPACE_REAUTH_REQUIRED, ask the user to complete the host-managed OAuth prompt and select the requested workspace. Never request or expose tokens."
+        },
+        {
             "name": "debug_diagnose",
             "description": "Run diagnostic analysis for an agent or session. Provide an exact agentName or sessionId; configOnly is useful for configuration-only inspection."
         }
@@ -224,6 +228,7 @@
                 "platform_eval_sets",
                 "platform_eval_runs",
                 "platform_config",
+                "platform_workspaces",
                 "debug_diagnose"
             ],
             "auth": {
