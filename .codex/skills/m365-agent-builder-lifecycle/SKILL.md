@@ -20,11 +20,18 @@ lifecycle.
   `.xls`, `.xlsx`, `.txt`, and `.pdf`; it allows at most 10 files and 1 MB per
   file. `.md` is rejected even when the JSON is otherwise valid.
 
-## Fix the current provisioning failure
+## Knowledge configuration
 
-The package now uses ten `.txt` files under `appPackage/knowledge/`; the
-original failure came from referencing `.md` files. For future local bundled
-knowledge, rename package files to `.txt` and update every reference. The
+`EmbeddedKnowledge` is currently disabled. Use MCP `debug_docs` and the scoped
+WebSearch for ABL guidance; verify live platform state through MCP. The ten
+`.txt` files under `appPackage/knowledge/` remain in the repo but are not
+referenced or packaged. See `docs/embedded-knowledge-guide.md` for the reason
+and rollout checks. Do not re-enable bundled grounding during a routine repair.
+
+## If bundled knowledge is reintroduced
+
+The earlier provisioning failure came from referencing `.md` files. For future
+local bundled knowledge, rename package files to `.txt` and update every reference. The
 content can remain plain text with Markdown-style headings; the extension is
 the platform allowlist check. Do not point the manifest at a file that was not
 renamed or copied.
@@ -39,8 +46,9 @@ Do not move reference material into `instruction.txt` just to bypass the
 allowlist; that file is the agent's operating instructions, not its knowledge
 store. Convert to `.docx` or `.pdf` only when document formatting matters.
 
-Before provisioning, verify that every embedded path exists, has a supported
-suffix, is no larger than 1 MB, and keeps the list at or below 10 files. Run
+When embedded knowledge is enabled, verify before provisioning that every
+embedded path exists, has a supported suffix, is no larger than 1 MB, and keeps
+the list at or below 10 files. Run
 the toolkit package validator after this check; a successful zip step alone
 does not prove that Copilot accepted the declarative-agent document.
 
@@ -83,9 +91,11 @@ Use this order and report each result separately:
 3. **Provision/publish:** distinguish app creation, OAuth registration,
    manifest update, and Copilot publish. A pass in one stage is not proof of
    the others.
-4. **Runtime:** start the agent, test one EmbeddedKnowledge question and one
-   MCP-backed request, and record whether the failure is package, auth,
-   routing, tool execution, or response delivery.
+4. **Runtime:** start the agent, test one `debug_docs` documentation request
+   and one MCP-backed project request. Confirm bundled SharePoint scopes are
+   absent when EmbeddedKnowledge is disabled. If it is intentionally enabled,
+   also test a bundled-knowledge question. Record whether the failure is
+   package, auth, routing, tool execution, or response delivery.
 5. **Evaluation:** after provisioning is confirmed, run the checked-in eval
    prompts or the configured evaluation command. Do not use evaluation output
    to prove provisioning succeeded.

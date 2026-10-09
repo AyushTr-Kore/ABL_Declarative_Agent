@@ -18,20 +18,20 @@ provision:
       teamsAppId: TEAMS_APP_ID
   - uses: oauth/register
     with:
-      name: 01462406b4
+      name: ff27115114
       appId: ${{TEAMS_APP_ID}}
       flow: authorizationCode
       isPKCEEnabled: true
-      authorizationUrl: https://ff27-115-114-88-222.ngrok-free.app/oauth/auth
-      tokenUrl: https://ff27-115-114-88-222.ngrok-free.app/oauth/token
-      refreshUrl: https://ff27-115-114-88-222.ngrok-free.app/oauth/token
+      authorizationUrl: https://6403-115-114-88-222.ngrok-free.app/oauth/auth
+      tokenUrl: https://6403-115-114-88-222.ngrok-free.app/oauth/token
+      refreshUrl: https://6403-115-114-88-222.ngrok-free.app/oauth/token
       identityProvider: Custom
-      baseUrl: https://ff27-115-114-88-222.ngrok-free.app/mcp/arch
-      clientId: ${{MCP_DA_OAUTH_CLIENT_ID_01462406B4}}
-      clientSecret: ${{SECRET_MCP_DA_OAUTH_CLIENT_SECRET_01462406B4}}
-      scope: ${{MCP_DA_OAUTH_SCOPE_01462406B4}}
+      baseUrl: https://6403-115-114-88-222.ngrok-free.app/mcp/arch
+      clientId: ${{MCP_DA_OAUTH_CLIENT_ID_FF27115114}}
+      clientSecret: ${{SECRET_MCP_DA_OAUTH_CLIENT_SECRET_FF27115114}}
+      scope: ${{MCP_DA_OAUTH_SCOPE_FF27115114}}
     writeToEnvironmentFile:
-      configurationId: MCP_DA_AUTH_ID_01462406B4
+      configurationId: MCP_DA_AUTH_ID_FF27115114
 
   # Build app package with latest env value
   - uses: teamsApp/zipAppPackage
@@ -94,4 +94,4 @@ publish:
     writeToEnvironmentFile:
       titleId: M365_PUBLISHED_TITLE_ID
       appId: M365_PUBLISHED_APP_ID
-projectId: 8c4e50c7-f485-42f3-94b9-80d1a04fd4e2
+projectId: d1e4b63c-850f-4b7c-bd5c-01587531792e

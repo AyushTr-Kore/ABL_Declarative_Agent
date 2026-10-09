@@ -58,6 +58,7 @@ approved engineering changes.
     - `appPackage/instruction.txt` (operating rules and safety policy)
     - `appPackage/manifest.json` (Teams and Copilot app metadata)
     - `docs/embedded-knowledge-guide.md` (knowledge-source design and setup)
+    - `docs/agent-skills.md` (package-level skills and validation)
     - `docs/tool-schema-and-discoverability-strategies.md` (tool catalog and discovery strategies)
 
 9. Provision & debug
@@ -97,9 +98,10 @@ approved engineering changes.
   and evaluation output. It does not authorize or perform MCP writes.
 - **WebSearch** is scoped to the public Kore.ai ABL documentation at
   `https://docs.kore.ai/agent-platform/`.
-- **EmbeddedKnowledge** contains ten curated ABL/debug/reference documents;
-  follow
-  [`docs/embedded-knowledge-guide.md`](docs/embedded-knowledge-guide.md).
+- **ABL documentation** uses the MCP `debug_docs` tool or scoped WebSearch.
+  `EmbeddedKnowledge` is disabled to remove competing bundled-file retrieval.
+  The reference files remain in the repo but are not included in the agent
+  package. See the [decision and verification steps](docs/embedded-knowledge-guide.md).
 - The app requests `identity` only. `messageTeamMembers` is unnecessary for
   this declarative-agent/MCP package because it has no proactive Teams
   messaging surface.

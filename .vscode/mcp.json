@@ -1,8 +1,11 @@
 {
   "servers": {
-    "01462406b4": {
+    "ff27115114": {
       "type": "http",
-      "url": "https://ff27-115-114-88-222.ngrok-free.app/mcp/arch"
+      "url": "https://6403-115-114-88-222.ngrok-free.app/mcp/arch",
+      "headers": {
+        "MCP-Protocol-Version": "2025-11-25"
+      }
     }
   }
 }

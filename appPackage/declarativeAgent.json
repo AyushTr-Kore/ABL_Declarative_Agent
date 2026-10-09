@@ -15,41 +15,6 @@
                     "url": "https://docs.kore.ai/agent-platform/"
                 }
             ]
-        },
-        {
-            "name": "EmbeddedKnowledge",
-            "files": [
-                {
-                    "file": "knowledge/abl-flow-lifecycle.txt"
-                },
-                {
-                    "file": "knowledge/abl-platform-contract.txt"
-                },
-                {
-                    "file": "knowledge/abl-import-contract.txt"
-                },
-                {
-                    "file": "knowledge/abl-behavior-profiles.txt"
-                },
-                {
-                    "file": "knowledge/abl-repair-loop.txt"
-                },
-                {
-                    "file": "knowledge/abl-language-overview.txt"
-                },
-                {
-                    "file": "knowledge/abl-agent-declaration.txt"
-                },
-                {
-                    "file": "knowledge/abl-tools-reference.txt"
-                },
-                {
-                    "file": "knowledge/abl-faq.txt"
-                },
-                {
-                    "file": "knowledge/abl-examples-by-pattern.txt"
-                }
-            ]
         }
     ],
     "conversation_starters": [
