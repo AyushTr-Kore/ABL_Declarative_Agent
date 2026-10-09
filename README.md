@@ -59,6 +59,7 @@ approved engineering changes.
     - `appPackage/manifest.json` (Teams and Copilot app metadata)
     - `docs/embedded-knowledge-guide.md` (knowledge-source design and setup)
     - `docs/agent-skills.md` (package-level skills and validation)
+    - `docs/skill-local-to-remote-migration-guide.md` (plan for local-to-remote skill references)
     - `docs/tool-schema-and-discoverability-strategies.md` (tool catalog and discovery strategies)
 
 9. Provision & debug
